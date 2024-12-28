@@ -10,7 +10,7 @@ export default function Index() {
         alignItems: "center",
       }}
     >
-        <Text className=" font-bold text-2xl">Merhaba</Text>
+      <Text className="font-bold text-2xl">Merhaba</Text>
       <Link href="/sign-in">Kayıt Ol</Link>
       <Link href="/profile">Profil</Link>
       <Link href="/explore">Keşfet</Link>
