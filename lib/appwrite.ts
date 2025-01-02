@@ -13,7 +13,7 @@ export const client = new Client();
 client
   .setEndpoint(config.endpoint!)
   .setProject(config.projectId!)
-  .setProject(config.platform!);
+  .setPlatform(config.platform!);
 
 export const avatar = new Avatars(client);
 export const account = new Account(client);
@@ -27,14 +27,19 @@ export const login = async () => {
       redirectUri,
     );
 
-    if (!response) throw new Error("Failed to login");
+    console.log(response);
+
+    if (!response) throw new Error("Failed to redirect login");
 
     const browserResult = await openAuthSessionAsync(
       response.toString(),
       redirectUri,
     );
 
-    if (browserResult.type !== "success") throw new Error("Failed to login");
+    console.log(browserResult);
+
+    if (browserResult.type !== "success")
+      throw new Error("Failed to browser login");
 
     const url = new URL(browserResult.url);
 
@@ -61,5 +66,24 @@ export const logout = async () => {
   } catch (e) {
     console.error(e);
     return false;
+  }
+};
+
+export const getCurrentUser = async () => {
+  try {
+    const response = await account.get();
+
+    if (response.$id) {
+      const userAvatar = avatar.getInitials(response.name);
+
+      return {
+        ...response,
+        avatar: userAvatar,
+      };
+    }
+  } catch (e) {
+    console.error(e);
+
+    return null;
   }
 };
