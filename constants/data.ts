@@ -77,27 +77,27 @@ export const settings = [
     icon: icons.wallet,
   },
   {
-    title: "Profile",
+    title: "Profilim",
     icon: icons.person,
   },
   {
-    title: "Notifications",
+    title: "Bildirimler",
     icon: icons.bell,
   },
   {
-    title: "Security",
+    title: "Güvenlik",
     icon: icons.shield,
   },
   {
-    title: "Language",
+    title: "Dil Seçimi",
     icon: icons.language,
   },
   {
-    title: "Help Center",
+    title: "Yardım Merkezi",
     icon: icons.info,
   },
   {
-    title: "Invite Friends",
+    title: "Arkadaşlarını Davet Et",
     icon: icons.people,
   },
 ];
