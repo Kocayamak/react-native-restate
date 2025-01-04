@@ -1,9 +1,10 @@
-import { Image, Text, View } from "react-native";
+import { Image, Text, TouchableOpacity, View } from "react-native";
 import { Link } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 import images from "@/constants/images";
 import icons from "@/constants/icons";
 import Search from "@/components/Search";
+import { Card, FeaturedCard } from "@/components/Cards";
 
 export default function Index() {
   return (
@@ -23,9 +24,43 @@ export default function Index() {
           </View>
           <Image source={icons.bell} className="size-6" />
         </View>
-      </View>
 
-      <Search />
+        <Search />
+
+        <View className="my-5">
+          <View className="flex flex-row items-center justify-between">
+            <Text className="text-xl font-Rubik-bold text-black-300">
+              Öne Çıkanlar
+            </Text>
+            <TouchableOpacity>
+              <Text className="text-base font-Rubik-bold text-primary-300">
+                Hepsini görün
+              </Text>
+            </TouchableOpacity>
+          </View>
+
+          <View className="flex flex-row gap-5 mt-5">
+            <FeaturedCard />
+            <FeaturedCard />
+          </View>
+        </View>
+
+        <View className="flex flex-row items-center justify-between">
+          <Text className="text-xl font-Rubik-bold text-black-300">
+            Bizim Önerilerimiz
+          </Text>
+          <TouchableOpacity>
+            <Text className="text-base font-Rubik-bold text-primary-300">
+              Hepsini görün
+            </Text>
+          </TouchableOpacity>
+        </View>
+
+        <View className="flex flex-row gap-5 mt-5">
+          <Card />
+          <Card />
+        </View>
+      </View>
     </SafeAreaView>
   );
 }
