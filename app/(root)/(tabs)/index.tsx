@@ -60,7 +60,7 @@ export default function Index() {
         renderItem={({ item }) => (
           <Card item={item} onPress={() => handleCardPress(item.$id)} />
         )}
-        keyExtractor={(item) => item.$id.toString()}
+        keyExtractor={(item) => item.$id}
         numColumns={2}
         contentContainerStyle={{
           paddingBottom: 128,
@@ -126,7 +126,7 @@ export default function Index() {
                       onPress={() => handleCardPress(item.$id)}
                     />
                   )}
-                  keyExtractor={(item) => item.$id.toString()}
+                  keyExtractor={(item) => item.$id}
                   horizontal
                   bounces={false}
                   showsHorizontalScrollIndicator={false}
